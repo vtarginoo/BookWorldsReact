@@ -1,13 +1,14 @@
 .cards {
   width: 280px;
+  position: relative;
 }
 
 .cards .cabecalho {
   background-color: #f0f0f0;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 0.625rem 0.625rem 0px 0px;
 }
 .cards img {
-  width: 100px;
+  width: 6.25rem;
   border-radius: 10%;
   position: relative;
   bottom: -50px;
@@ -15,23 +16,33 @@
 
 .cards .rodape {
   background: #ffffff;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
-  border-radius: 0px 0px 10px 10px;
-  padding-top: 90px;
-  padding-bottom: 40px;
+  box-shadow: 0.3rem 0.3rem 1rem rgba(0, 0, 0, 0.08);
+  border-radius: 0px 0px 0.625rem 0.625rem;
+  padding-top: 5.6rem;
+  padding-bottom: 2.5rem;
 }
 
 .cards .rodape h4 {
   color: #6278f7;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .cards .rodape h5 {
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
   color: #212121;
   padding: 0 16px;
+}
+
+.cards .deletar {
+  position: absolute;
+  right: -0.625rem;
+  top: -0.625rem;
+}
+
+.favoritar {
+  margin-top: 1.2rem;
 }

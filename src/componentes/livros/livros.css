@@ -1,6 +1,7 @@
 .livros-class {
   text-align: center;
   padding: 2rem;
+  position: relative;
 }
 
 .livros-class h3 {
@@ -15,4 +16,10 @@
   justify-content: space-around;
   margin-top: 2rem;
   flex-wrap: wrap;
+}
+
+.livros-class .input-color {
+  position: absolute;
+  top: 1.25rem;
+  right: 3.1rem;
 }

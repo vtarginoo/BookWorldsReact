@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Botao from "../botao";
-import CampoTexto from "../campoTexto";
+import Campo from "../campo";
 import ListaSupensa from "../listaSuspensa";
 
 import "./formulario.css";
@@ -10,6 +10,8 @@ const Formulario = (props) => {
   const [autor, setAutor] = useState("");
   const [image, setImage] = useState("");
   const [categoria, setCategoria] = useState("");
+  const [nomeCategoria, setNomeCategoria] = useState("");
+  const [corCategoria, setCorCategoria] = useState("");
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
@@ -19,6 +21,8 @@ const Formulario = (props) => {
       autor,
       image,
       categoria,
+      nomeCategoria,
+      corCategoria,
     });
 
     setNome("");
@@ -31,24 +35,27 @@ const Formulario = (props) => {
     <section className="formulario">
       <form onSubmit={aoSalvar}>
         <h2>Preencha com as informações dos livros:</h2>
-        <CampoTexto
+        <Campo
+          type="text"
           obrigatorio={true}
           label="Nome do Livro"
           placeholder="Digite seu nome"
-          value={nome}
+          valor={nome}
           aoAlterado={(valor) => setNome(valor)}
         />
-        <CampoTexto
+        <Campo
+          type="text"
           obrigatorio={true}
           label="Autor"
-          placeholder="Digite seu cargo"
-          value={autor}
+          placeholder="Digite o nome do autor"
+          valor={autor}
           aoAlterado={(valor) => setAutor(valor)}
         />
-        <CampoTexto
+        <Campo
+          type="text"
           label="Imagem"
           placeholder="Digite o endereço da imagem"
-          value={image}
+          valor={image}
           aoAlterado={(valor) => setImage(valor)}
         />
         <ListaSupensa
@@ -60,6 +67,34 @@ const Formulario = (props) => {
         />
 
         <Botao texto="Criar Card" />
+      </form>
+      <form
+        onSubmit={(evento) => {
+          evento.preventDefault();
+          props.cadastrarCategoria({ nome: nomeCategoria, cor: corCategoria });
+          setNomeCategoria("");
+          setCorCategoria("");
+        }}
+      >
+        <h2>Crie uma nova Categoria:</h2>
+        <Campo
+          type="text"
+          obrigatorio={true}
+          label="Nome da nova categoria"
+          placeholder="Digite o nome da categoria"
+          valor={nomeCategoria}
+          aoAlterado={(valor) => setNomeCategoria(valor)}
+        />
+        <Campo
+          type="color"
+          obrigatorio={true}
+          label="Cor da nova categoria (em Hexa)"
+          placeholder="Digite a cor da categoria"
+          valor={corCategoria}
+          aoAlterado={(valor) => setCorCategoria(valor)}
+        />
+
+        <Botao texto="Criar nova categoria" />
       </form>
     </section>
   );
